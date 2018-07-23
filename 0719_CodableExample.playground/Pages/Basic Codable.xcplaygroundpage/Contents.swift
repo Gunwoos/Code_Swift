@@ -31,11 +31,11 @@ func basic() {
   
   // JSONSerialization
 //  let dog1 = try! JSONSerialization.jsonObject(with: jsonData)
-//    let jsonObject = try! JSONSerialization.jsonObject(with: jsonData) as! [String:Any]
-//    let dog1 = Dog(age: jsonObject["age"] as! Int, name: jsonObject["name"] as! String)
+    let jsonObject = try! JSONSerialization.jsonObject(with: jsonData) as! [String:Any]
+    let dog1 = Dog(age: jsonObject["age"] as! Int, name: jsonObject["name"] as! String)
 //
-//  print(dog1)
-//    dog1.age
+  print(dog1)
+    dog1.age
     
 //  print(dog1.age)   // error
   
