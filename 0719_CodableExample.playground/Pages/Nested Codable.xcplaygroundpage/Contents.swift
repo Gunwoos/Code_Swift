@@ -8,6 +8,7 @@ struct Astronauts: Decodable {
   
   struct Person: Decodable {
     let name: String
+    let craft: String
   }
 }
 
@@ -35,10 +36,17 @@ let jsonString = """
 let jsonData = jsonString.data(using: .utf8)!
 
 do {
-  let astronauts = try JSONDecoder().decode(Astronauts.self, from: jsonData)
-  print(astronauts.message)
-  print(astronauts.number)
-  astronauts.people.forEach { print($0)}
+    let astronauts = try JSONDecoder().decode(Astronauts.self, from: jsonData)
+    print(astronauts.message)
+    print(astronauts.number)
+    astronauts.people.forEach { print($0)}
+    astronauts.people[0].name
+    
+    let person = try JSONDecoder().decode(Astronauts.Person.self, from: jsonData)
+    print(person.craft)
+    print(person.name)
+    
+    
 } catch {
   print(error.localizedDescription)
 }

@@ -51,4 +51,30 @@ dataTask.resume()
  "http://api.open-notify.org/iss-now.json"   // 국제정거장 위치 정보
  ***************************************************/
 
+let data = "http://api.open-notify.org/iss-now.json"
+let dataURL = URL(string: data)!
+
+let dataTask2 = URLSession.shared.dataTask(with: dataURL) { (data, response, error) in
+    guard error == nil else { print(error!); return }
+    guard let response = response as? HTTPURLResponse, 200..<400 ~= response.statusCode else {
+        print("StatusCode is not valid")
+        return
+    }
+    guard let data = data,let jsonObject = try? JSONSerialization.jsonObject(with: data) as! [String: Any]
+        else { return print("No Data") }
+    print("jsonObject :", jsonObject)
+    
+    guard (jsonObject["message"] as? String) == "success",
+        let position = jsonObject["iss_position"] as? [String:String],
+        let timestamp = jsonObject["timestamp"] as? Int
+        else { return print("Parsing Error") }
+
+    print("\n parsing success")
+    print("timestamp : \(timestamp)")
+    print("latitude : \(position["latitude"]!)")
+    print("longitude : \(position["longitude"]!)")
+}
+
+//dataTask2.resume()
+
 //: [Table of Contents](Contents) | [Previous](@previous) | [Next](@next)

@@ -111,8 +111,8 @@ private func jsonObjectWithData() {
   }
 }
 
-//print("\n---------- [ jsonObjectWithData ] ----------\n")
-//jsonObjectWithData()
+print("\n---------- [ jsonObjectWithData ] ----------\n")
+jsonObjectWithData()
 
 //: ---
 //: ## JSON Object with InputStream

@@ -6,17 +6,17 @@ struct Dog: Codable {
   let age: Int
   let name: String
   
-  //  private enum CodingKeys: String, CodingKey {
-  //    case age
-  //    case name
-  //  }
-  //
-  //  init(from decoder: Decoder) throws {
-  //    let values = try decoder.container(keyedBy: CodingKeys.self)
-  //    age = try values.decode(Int.self, forKey: .age)
-  //    name = try values.decode(String.self, forKey: .name)
-  //  }
-  //
+//    private enum CodingKeys: String, CodingKey {
+//      case age
+//      case name
+//    }
+  
+//    init(from decoder: Decoder) throws {
+//      let values = try decoder.container(keyedBy: CodingKeys.self)
+//      age = try values.decode(Int.self, forKey: .age)
+//      name = try values.decode(String.self, forKey: .name)
+//    }
+  
 }
 
 
@@ -45,8 +45,8 @@ func basic() {
   
 
   // Codable
-//  let dog2 = try! JSONDecoder().decode(Dog.self, from: jsonData)
-//  print(dog2)
+  let dog2 = try! JSONDecoder().decode(Dog.self, from: jsonData)
+  print(dog2)
 }
 
 
@@ -103,6 +103,6 @@ func dictionary() {
 
 //basic()
 //array()
-//dictionary()
+dictionary()
 
 //: [Table of Contents](@Contents) | [Previous](@previous) | [Next](@next)
